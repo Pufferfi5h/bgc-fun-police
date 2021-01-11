@@ -6,6 +6,12 @@ module.exports = {
 
         const channel = Client.channels.cache.get(chan); //Staff Responsibilities Room
         
+        channel.messages.fetch().then((results) =>  // Fetch all of the messages in the channel
+        setTimeout(function(){ 
+            channel.bulkDelete(results); // Clear the channel of messages
+        }, 3000)
+        );
+        
 //----------------------------------------------------------------------------------------------------------------------------------------
 //  Create the Rules' Embed
 //----------------------------------------------------------------------------------------------------------------------------------------

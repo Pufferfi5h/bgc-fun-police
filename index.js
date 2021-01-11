@@ -28,31 +28,25 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-//
-//---- ADMIN RULES ----
-//
-    if(command === 'bgcfp1'){ //Update Admin Rules
-        const chan = ["798237916299657274","775998618645430283"];       
 
-        if(message.member.hasPermission('ADMINISTRATOR')){ // Make sure that only Administrators can run this command
-            for (let i = 0; i < chan.length; i++) {
-                client.commands.get('admin-rules').execute(message, args, Discord, client, chan[i], embedColour); // Update the Admin RUles Embeds
-            }
+    if(message.member.hasPermission('ADMINISTRATOR')){ // Make sure that only Administrators can run this command
+        
+        if(command === "fpa"){ //Update Admin Rules
+            client.commands.get('admin-rules').execute(message, args, Discord, client, "775998618645430283", embedColour); 
+        }       
+        if(command === "fpat"){ //Update Admin Rules Temp
+            client.commands.get('admin-rules').execute(message, args, Discord, client, "798237916299657274", embedColour);  
+        }  
+        if(command === "fps"){ //Update Staff Rules
+            client.commands.get('staff-rules').execute(message, args, Discord, client, "796821654294495252", embedColour); 
         }
+        if(command === "fpst"){ //Update Staff Rules Temp
+            client.commands.get('staff-rules').execute(message, args, Discord, client, "775392785972461620", embedColour);  
+        }
+        message.delete();
     }
 
-//
-//---- STAFF RULES ----
-//
-    if(command === "bgcfp2"){ //Update Staff Rules
-        const chan = ["775392785972461620","796821654294495252"];       
 
-        if(message.member.hasPermission('ADMINISTRATOR')){ // Make sure that only Administrators can run this command
-            for (let i = 0; i < chan.length; i++) {
-                client.commands.get('staff-rules').execute(message, args, Discord, client, chan[i], embedColour); // Update the Staff RUles Embeds
-            }
-        }
-    }
 });
 
 //Comment these following two lines of code before uploading
