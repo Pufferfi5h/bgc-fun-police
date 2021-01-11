@@ -69,8 +69,8 @@ client.on('message', message =>{
 });
 
 //Comment these following two lines of code before uploading
-const config = require('./config.json') 
-client.login(config.token)
+//const config = require('./config.json') 
+//client.login(config.token)
 
 //Uncomment the following line of code before uploading
-//client.login(process.env.DJS_TOKEN)
+client.login(process.env.DJS_TOKEN)
