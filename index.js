@@ -43,7 +43,6 @@ client.on('message', message =>{
         if(command === "fpst"){ //Update Staff Rules Temp
             client.commands.get('staff-rules').execute(message, args, Discord, client, "775392785972461620", embedColour);  
         }
-        message.delete();
     }
 
 
