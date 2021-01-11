@@ -32,7 +32,6 @@ client.on('message', message =>{
 //---- ADMIN RULES ----
 //
     if(command === 'bgcfp1'){ //Update Admin Rules
-        message.delete(); // Delete the entered command
         const chan = ["798237916299657274","775998618645430283"];       
 
         if(message.member.hasPermission('ADMINISTRATOR')){ // Make sure that only Administrators can run this command
@@ -40,6 +39,7 @@ client.on('message', message =>{
                 client.commands.get('admin-rules').execute(message, args, Discord, client, chan[i], embedColour); // Update the Admin RUles Embeds
             }
         }
+        message.delete(); // Delete the entered command
     }
 
 //
@@ -54,6 +54,7 @@ client.on('message', message =>{
                 client.commands.get('staff-rules').execute(message, args, Discord, client, chan[i], embedColour); // Update the Staff RUles Embeds
             }
         }
+        message.delete(); // Delete the entered command
     }
 });
 
