@@ -31,18 +31,19 @@ client.on('message', message =>{
 
     if(message.member.hasPermission('ADMINISTRATOR')){ // Make sure that only Administrators can run this command
         
-        if(command === "fpa"){ //Update Admin Rules
+        if(command === "admin"){ //Update Admin Rules
             client.commands.get('admin-rules').execute(message, args, Discord, client, "775998618645430283", embedColour); 
         }       
-        if(command === "fpat"){ //Update Admin Rules Temp
+        if(command === "admintemp"){ //Update Admin Rules Temp
             client.commands.get('admin-rules').execute(message, args, Discord, client, "798237916299657274", embedColour);  
         }  
-        if(command === "fps"){ //Update Staff Rules
+        if(command === "staff"){ //Update Staff Rules
             client.commands.get('staff-rules').execute(message, args, Discord, client, "796821654294495252", embedColour); 
         }
-        if(command === "fpst"){ //Update Staff Rules Temp
+        if(command === "stafftemp"){ //Update Staff Rules Temp
             client.commands.get('staff-rules').execute(message, args, Discord, client, "775392785972461620", embedColour);  
         }
+        message.delete();
     }
 
 
