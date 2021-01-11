@@ -39,14 +39,12 @@ client.on('message', message =>{
                 client.commands.get('admin-rules').execute(message, args, Discord, client, chan[i], embedColour); // Update the Admin RUles Embeds
             }
         }
-        message.delete(); // Delete the entered command
     }
 
 //
 //---- STAFF RULES ----
 //
     if(command === "bgcfp2"){ //Update Staff Rules
-        //message.delete(); // Delete the entered command
         const chan = ["775392785972461620","796821654294495252"];       
 
         if(message.member.hasPermission('ADMINISTRATOR')){ // Make sure that only Administrators can run this command
@@ -54,13 +52,12 @@ client.on('message', message =>{
                 client.commands.get('staff-rules').execute(message, args, Discord, client, chan[i], embedColour); // Update the Staff RUles Embeds
             }
         }
-        message.delete(); // Delete the entered command
     }
 });
 
 //Comment these following two lines of code before uploading
-//const config = require('./config.json') 
-//client.login(config.token)
+const config = require('./config.json') 
+client.login(config.token)
 
 //Uncomment the following line of code before uploading
-client.login(process.env.DJS_TOKEN)
+//client.login(process.env.DJS_TOKEN)
