@@ -37,7 +37,7 @@ client.on('message', message =>{
 
         if(message.member.hasPermission('ADMINISTRATOR')){ // Make sure that only Administrators can run this command
             for (let i = 0; i < chan.length; i++) {
-            client.commands.get('admin-rules').execute(message, args, Discord, client, chan[i], embedColour); // Update the Admin RUles Embeds
+                client.commands.get('admin-rules').execute(message, args, Discord, client, chan[i], embedColour); // Update the Admin RUles Embeds
             }
         }
     }
@@ -51,26 +51,15 @@ client.on('message', message =>{
 
         if(message.member.hasPermission('ADMINISTRATOR')){ // Make sure that only Administrators can run this command
             for (let i = 0; i < chan.length; i++) {
-            client.commands.get('staff-rules').execute(message, args, Discord, client, chan[i], embedColour); // Update the Staff RUles Embeds
+                client.commands.get('staff-rules').execute(message, args, Discord, client, chan[i], embedColour); // Update the Staff RUles Embeds
             }
         }
     }
-
-    if(command === 'bgcfp3'){ //Update Staff Rules
-        message.delete(); // Delete the entered command
-        const chan = ["775392785972461620","798237916299657274"];       
-
-        if(message.member.hasPermission('ADMINISTRATOR')){ // Make sure that only Administrators can run this command
-            client.commands.get('staff-rules').execute(message, args, Discord, client, chan[0], embedColour); // Update the Temp Staff RUles Embeds
-            client.commands.get('admin-rules').execute(message, args, Discord, client, chan[1], embedColour); // Update the Temp Admin RUles Embeds
-        }
-    }
-
 });
 
 //Comment these following two lines of code before uploading
-//const config = require('./config.json') 
-//client.login(config.token)
+const config = require('./config.json') 
+client.login(config.token)
 
 //Uncomment the following line of code before uploading
-client.login(process.env.DJS_TOKEN)
+//client.login(process.env.DJS_TOKEN)
