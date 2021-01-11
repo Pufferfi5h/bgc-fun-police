@@ -15,7 +15,7 @@ for (const file of commandFiles){
 }
 
 client.on('ready', () => {
-    console.log('BGC-Online is Ready')
+    console.log('BGC-Fun-Police is Ready')
     client.user.setActivity('you closely!', { type: "WATCHING"}) //Set the BOT Status
         .catch(console.error);
 })
