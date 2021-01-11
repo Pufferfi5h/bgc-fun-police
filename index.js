@@ -45,8 +45,8 @@ client.on('message', message =>{
 //
 //---- STAFF RULES ----
 //
-    if(command === 'bgcfp2'){ //Update Staff Rules
-        message.delete(); // Delete the entered command
+    if(command === "bgcfp2"){ //Update Staff Rules
+        //message.delete(); // Delete the entered command
         const chan = ["775392785972461620","796821654294495252"];       
 
         if(message.member.hasPermission('ADMINISTRATOR')){ // Make sure that only Administrators can run this command

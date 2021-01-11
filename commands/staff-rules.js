@@ -75,7 +75,7 @@ module.exports = {
                 const bgcStaff = message.guild.roles.cache.find(role => role.id === "774223494803750942"); //BGC Staff Roles Added
                 const bgcTempStaff = message.guild.roles.cache.find(role => role.id === "796823348898037812"); //BGC Temp Staff Roles Removed
 
-                const agreedEmoji = '☑️';
+                const agreedEmoji = ':bgcyes:';
 
                 let embedReactions = new Discord.MessageEmbed()
                 .setColor(embedColour)
