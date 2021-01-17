@@ -90,39 +90,27 @@ module.exports = {
 //  Create the BGC Staff Rules Agreed Reactions Embed
 //----------------------------------------------------------------------------------------------------------------------------------------
 
-        if (chan === "798237916299657274"){
+const bgcAgree = ("<:BGCTick:800349960830189608>");
 
-                const bgcAdmin = message.guild.roles.cache.find(role => role.id === "776437405090971699"); //BGC Admin Role Added
-                const bgcTempAdmin = message.guild.roles.cache.find(role => role.id === "783339993887146006"); //BGC Temp Admin Role Removed
+if(chan === "798237916299657274"){
+        let embedRules1 = new Discord.MessageEmbed()
+        .setColor(embedColour)
+        .setTitle('BGC-Online (Admin) Role')
+        .setDescription("**NOTE**: In order for you to become a fully fledged Admin member you must first agree to the aforementioned Rules and Regulations.\n\n#" 
+                         + " Simply enter the following command below to confirm that you concur with the above.\n\n")
 
-                const agreedEmoji = '☑️';
-
-                let embedReactions = new Discord.MessageEmbed()
-                .setColor(embedColour)
-                .setTitle('')
-                .setDescription("**NOTE**: By Selecting the " + agreedEmoji + " below you are acknowledging that you have read and understood the rules laid out above.\n\n" 
+        .addField("---------------------------------------------------------------------------------------------", "" + 
+                `${bgcAgree} Agree to the Rules and Resulations = **!agree**`)
+        
+        .addField("---------------------------------------------------------------------------------------------", "" + 
+                "If you have any issues regarding your future role or the responsibilities that go with it, please don't hesitate to raise them to one of the BGC Committee members and they will endevour to assist you where they can.\n\n"
                 
-                + "**Please smack the emoji below to acknowledge the rules of being a BGC Admin.**");
+                + "Many thanks,\n\n"
 
-                let msgEmbedReactions = await channel.send(embedReactions);  //await message.channel.send(embed); Puts the embed in the channel that the message was sent from
-                msgEmbedReactions.react(agreedEmoji);
+                + "Pufferfi5h (Founder)")
 
-                Client.on('messageReactionAdd', async (reaction, user) =>{
-                        if(reaction.message.partial) await reaction.message.fetch();
-                        if(reaction.partial) await reaction.fetch();
-                        if(user.bot) return;
-                        if(!reaction.message.guild) return;
-                        
-                        if(reaction.message.channel.id == channel){
-                        if(reaction.emoji.name === agreedEmoji){
-                                await reaction.message.guild.members.cache.get(user.id).roles.remove(bgcTempAdmin);
-                                await reaction.message.guild.members.cache.get(user.id).roles.add(bgcAdmin);
-                        }
-                        }else{
-                        return;
-                        }
-                })      
-        }   
+        let msgEmbedRules1 = await channel.send(embedRules1);
+ } 
 }
 }
 

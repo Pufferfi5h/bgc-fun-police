@@ -6,6 +6,11 @@ module.exports = {
 
         const channel = Client.channels.cache.get(chan); //Staff Responsibilities Room
         
+        channel.messages.fetch().then((results) =>  // Fetch all of the messages in the channel
+        setTimeout(function(){ 
+            channel.bulkDelete(results); // Clear the channel of messages
+        }, 3000)
+        );
 //----------------------------------------------------------------------------------------------------------------------------------------
 //  Create the Rules' Embed
 //----------------------------------------------------------------------------------------------------------------------------------------
@@ -67,7 +72,7 @@ module.exports = {
         if(chan === "775392785972461620"){
                 let embedRules1 = new Discord.MessageEmbed()
                 .setColor(embedColour)
-                .setTitle('BGC-Online (Discord) Roles')
+                .setTitle('BGC-Online (Staff) Role')
                 .setDescription("**NOTE**: In order for you to become a fully fledged Staff member you must first agree to the aforementioned Rules and Regulations.\n\n#" 
                                  + " Simply enter the following command below to confirm that you concur with the above.\n\n")
         

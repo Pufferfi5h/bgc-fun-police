@@ -30,29 +30,36 @@ client.on('message', message =>{
 
     if(message.member.hasPermission('ADMINISTRATOR')){ // Make sure that only Administrators can run this command
         
-        if(command === "admintemp"){ //Update Admin Rules
+        if(command === "bgc1"){ //Update Temp Admin Rules
             client.commands.get('admin-rules').execute(message, args, Discord, client, "798237916299657274", embedColour);  
         }  
         
-        if(command === "admin"){ //Update Admin Rules
+        if(command === "bgc2"){ //Update Admin Rules
             client.commands.get('admin-rules').execute(message, args, Discord, client, "775998618645430283", embedColour); 
         }   
 
-        if(command === "stafftemp"){ //Update Staff Rules 
+        if(command === "bgc3"){ //Update Temp Staff Rules 
             client.commands.get('staff-rules').execute(message, args, Discord, client, "775392785972461620", embedColour);
         }
 
-        if(command === "staff"){ //Update Staff Rules
+        if(command === "bgc4"){ //Update Staff Rules
             client.commands.get('staff-rules').execute(message, args, Discord, client, "796821654294495252", embedColour); 
         }
     }
 
-    if(command === "agree" && message.channel.id === '796823348898037812'){ //Update Admin Rules
-        let newRole = message.member.guild.roles.cache.find(newRole => newRole.id === "7774223494803750942"); // Add Lounge
+    if(command === "agree" && message.channel.id === '798237916299657274'){ //Update Admin Rules
+        let newRole = message.member.guild.roles.cache.find(newRole => newRole.id === "776437405090971699"); // Add Admin Role
         if (newRole) message.guild.members.cache.get(message.author.id).roles.add(newRole);
-        let oldRole = message.member.guild.roles.cache.find(oldRole  => oldRole.id === "796823348898037812"); // Remove New Beaconite
+        let oldRole = message.member.guild.roles.cache.find(oldRole  => oldRole.id === "783339993887146006"); // Remove Admin Temp
         if (oldRole) message.guild.members.cache.get(message.author.id).roles.remove(oldRole);
     }
+
+    if(command === "agree" && message.channel.id === '775392785972461620'){
+        let newRole = message.member.guild.roles.cache.find(newRole => newRole.id === "774223494803750942"); // Add Staff Role
+        if (newRole) message.guild.members.cache.get(message.author.id).roles.add(newRole);
+        let oldRole = message.member.guild.roles.cache.find(oldRole  => oldRole.id === "796823348898037812"); // Remove Staff Temp Role
+        if (oldRole) message.guild.members.cache.get(message.author.id).roles.remove(oldRole);
+        }
 });
 
 //Comment these following two lines of code before uploading
