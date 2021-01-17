@@ -66,41 +66,29 @@ module.exports = {
 //  Create the BGC Staff Rules Agreed Reactions Embed
 //----------------------------------------------------------------------------------------------------------------------------------------
 
-        //If chan === room = BGC Staff Agree do below.
+        const bgcAgree = ("<:BGCTick:800349960830189608>");
 
-        if (chan === "775392785972461620"){
-
-                const bgcStaff = message.guild.roles.cache.find(role => role.id === "774223494803750942"); //BGC Staff Roles Added
-                const bgcTempStaff = message.guild.roles.cache.find(role => role.id === "796823348898037812"); //BGC Temp Staff Roles Removed
-
-                const agreedEmoji = '☑️';
-
-                let embedReactions = new Discord.MessageEmbed()
+        if(chan === "775392785972461620"){
+                let embedRules1 = new Discord.MessageEmbed()
                 .setColor(embedColour)
-                .setTitle('')
-                .setDescription("**NOTE**: By Selecting the " + agreedEmoji + " below you are acknowledging that you have read and understood the rules laid out above.\n\n" 
+                .setTitle('BGC-Online (Discord) Roles')
+                .setDescription("**NOTE**: In order for you to become a fully fledged Staff member you must first agree to the aforementioned Rules and Regulations.\n\n#" 
+                                 + " Simply enter the following command below to confirm that you concur with the above.\n\n")
+        
+                .addField("---------------------------------------------------------------------------------------------", "" + 
+                        `${bgcAgree} Agree to the Rules and Resulations = **!agree**`)
                 
-                + "**Please smack the emoji below to acknowledge the rules of being a BGC Staff member.**");
-
-                let msgEmbedReactions = await channel.send(embedReactions);  //await message.channel.send(embed); Puts the embed in the channel that the message was sent from
-                msgEmbedReactions.react(agreedEmoji);
-
-                Client.on('messageReactionAdd', async (reaction, user) =>{
-                        if(reaction.message.partial) await reaction.message.fetch();
-                        if(reaction.partial) await reaction.fetch();
-                        if(user.bot) return;
-                        if(!reaction.message.guild) return;
+                .addField("---------------------------------------------------------------------------------------------", "" + 
+                        "If you have any issues regarding your future role or the responsibilities that go with it, please don't hesitate to raise them to one of the Admin and they will endevour to assist you where they can.\n\n"
                         
-                        if(reaction.message.channel.id == channel){
-                        if(reaction.emoji.name === agreedEmoji){
-                                await reaction.message.guild.members.cache.get(user.id).roles.remove(bgcTempStaff);
-                                await reaction.message.guild.members.cache.get(user.id).roles.add(bgcStaff);
-                        }
-                        }else{
-                        return;
-                        }
-                })      
-        }
+                        + "Many thanks,\n\n"
+        
+                        + "Pufferfi5h (Founder)")
+        
+                let msgEmbedRules1 = await channel.send(embedRules1);
+         }
+        
 }
+        
 }
 
