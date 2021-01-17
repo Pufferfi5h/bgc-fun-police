@@ -30,14 +30,20 @@ client.on('message', message =>{
 
     if(message.member.hasPermission('ADMINISTRATOR')){ // Make sure that only Administrators can run this command
         
+        if(command === "admintemp"){ //Update Admin Rules
+            client.commands.get('admin-rules').execute(message, args, Discord, client, "798237916299657274", embedColour);  
+        }  
+        
         if(command === "admin"){ //Update Admin Rules
             client.commands.get('admin-rules').execute(message, args, Discord, client, "775998618645430283", embedColour); 
-            client.commands.get('admin-rules').execute(message, args, Discord, client, "798237916299657274", embedColour);  
-        }       
+        }   
+
+        if(command === "stafftemp"){ //Update Staff Rules 
+            client.commands.get('staff-rules').execute(message, args, Discord, client, "775392785972461620", embedColour);
+        }
 
         if(command === "staff"){ //Update Staff Rules
             client.commands.get('staff-rules').execute(message, args, Discord, client, "796821654294495252", embedColour); 
-            client.commands.get('staff-rules').execute(message, args, Discord, client, "775392785972461620", embedColour);
         }
     }
 
