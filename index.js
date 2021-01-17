@@ -41,7 +41,7 @@ client.on('message', message =>{
         }
     }
 
-    if(command === "staffagree" && message.channel.id === '796823348898037812'){ //Update Admin Rules
+    if(command === "agree" && message.channel.id === '796823348898037812'){ //Update Admin Rules
         let newRole = message.member.guild.roles.cache.find(newRole => newRole.id === "7774223494803750942"); // Add Lounge
         if (newRole) message.guild.members.cache.get(message.author.id).roles.add(newRole);
         let oldRole = message.member.guild.roles.cache.find(oldRole  => oldRole.id === "796823348898037812"); // Remove New Beaconite
