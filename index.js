@@ -28,7 +28,6 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-
     if(message.member.hasPermission('ADMINISTRATOR')){ // Make sure that only Administrators can run this command
         
         if(command === "admin"){ //Update Admin Rules
@@ -42,17 +41,16 @@ client.on('message', message =>{
         }
     }
 
-    if(command === "agree" && message.channel.id === ' 775392785972461620'){ //Update Admin Rules
-        let newRole = message.member.guild.roles.cache.find(newRole => newRole.id === "774223494803750942"); // Add Staff
+    if(command === "staffagree" && message.channel.id === '796823348898037812'){ //Update Admin Rules
+        let newRole = message.member.guild.roles.cache.find(newRole => newRole.id === "7774223494803750942"); // Add Lounge
         if (newRole) message.guild.members.cache.get(message.author.id).roles.add(newRole);
-        let oldRole = message.member.guild.roles.cache.find(oldRole  => oldRole.id === "796823348898037812"); // Remove BGC Staff Temp
+        let oldRole = message.member.guild.roles.cache.find(oldRole  => oldRole.id === "796823348898037812"); // Remove New Beaconite
         if (oldRole) message.guild.members.cache.get(message.author.id).roles.remove(oldRole);
     }
-    message.delete(); //deletes the message
 });
 
 //Comment these following two lines of code before uploading
-////const config = require('./config.json') 
+//const config = require('./config.json') 
 //client.login(config.token)
 
 //Uncomment the following line of code before uploading
