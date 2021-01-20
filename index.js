@@ -60,6 +60,8 @@ client.on('message', message =>{
         let oldRole = message.member.guild.roles.cache.find(oldRole  => oldRole.id === "796823348898037812"); // Remove Staff Temp Role
         if (oldRole) message.guild.members.cache.get(message.author.id).roles.remove(oldRole);
         }
+        
+    message.delete(); //deletes the message
 });
 
 //Comment these following two lines of code before uploading
